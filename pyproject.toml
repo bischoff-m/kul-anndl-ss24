@@ -1,0 +1,29 @@
+[project]
+name = "kul-anndl-ss24"
+version = "0.1.0"
+authors = [{ name = "Marco Bischoff", email = "m.bischoff@fz-juelich.de" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "keras>=3.3.3",
+    "scipy",
+    "scikit-learn",
+    "ipykernel",
+    "ipywidgets",
+    "ipympl",
+    "widgetsnbextension",
+    "pandas>=2.2.2",
+    "torch>=2.3.0",
+    "torchvision>=0.18.0",
+    "torchaudio>=2.3.0",
+    "keras-core>=0.1.7",
+]
+readme = "README.md"
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+dev = []
