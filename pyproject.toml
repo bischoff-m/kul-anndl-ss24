@@ -20,6 +20,7 @@ dependencies = [
     "keras-core",
     "tensorflow",
     "tensorflow-io-gcs-filesystem",
+    "torch-directml",
 ]
 readme = "README.md"
 
