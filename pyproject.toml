@@ -2,22 +2,24 @@
 name = "kul-anndl-ss24"
 version = "0.1.0"
 authors = [{ name = "Marco Bischoff", email = "m.bischoff@fz-juelich.de" }]
-requires-python = ">=3.11"
+requires-python = ">=3.9,<3.12"
 dependencies = [
     "numpy",
     "matplotlib",
-    "keras>=3.3.3",
+    "keras",
     "scipy",
     "scikit-learn",
     "ipykernel",
     "ipywidgets",
     "ipympl",
     "widgetsnbextension",
-    "pandas>=2.2.2",
-    "torch>=2.3.0",
-    "torchvision>=0.18.0",
-    "torchaudio>=2.3.0",
-    "keras-core>=0.1.7",
+    "pandas",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "keras-core",
+    "tensorflow",
+    "tensorflow-io-gcs-filesystem",
 ]
 readme = "README.md"
 

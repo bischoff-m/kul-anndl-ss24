@@ -1,18 +1,35 @@
 \documentclass{article}
 
+\usepackage[OT1]{fontenc}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{amsxtra}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage[most]{tcolorbox}
 
+\renewcommand*\familydefault{\sfdefault} % Set font to sans-serif
 \graphicspath{ {figures/} }
+
+\definecolor{highlight}{RGB}{29, 141, 176}
 
 \newcommand{\refchapter}[1]{Chapter~\ref{#1}}
 \newcommand{\refsec}[1]{Section~\ref{#1}}
 \newcommand{\refeqn}[1]{Equation~(\ref{#1})}
 \newcommand{\reffig}[1]{Figure~\ref{#1}}
+
+\newenvironment{task}[1]{
+  \begin{tcolorbox}[
+    colback=highlight!5!white,
+    colframe=highlight,
+    title={Task #1}
+  ]
+}{
+  \end{tcolorbox}
+}
 
 \title{
   \vspace*{2cm}
@@ -38,13 +55,65 @@
 
 
 
-\section{Introduction}
-\label{ch:1}
+\section{Supervised Learning and Generalization}
+\label{ex:1}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit
+\setcounter{subsection}{2}
+\subsection{In the Wide Jungle of the Training}
+\label{task:1.3}
+
+
+\begin{task}{1.3.1}
+  What is the impact of the noise (parameter \texttt{noise} in the notebook) with respect to the
+  optimization process?
+\end{task}
+
+The noise parameter controls the deviation of the training data from the true function. For $noise =
+  0$, the data exactly matches the true function and the model will converge to the true function
+quickly. For $noise > 0$, the data is perturbed by noise and the model will take longer to converge.
+For $noise = 1$, the data is completely random and the model will only converge to the mean of the
+training data without being able to capture the underlying function.
+
+
+\begin{task}{1.3.2}
+  How does (vanilla) gradient descent compare with respect to its stochastic and accelerated
+  versions?
+\end{task}
+
+Vanilla gradient descent is the slowest of the three methods. It computes the gradient of the loss
+function for the entire training set at each iteration. Stochastic gradient descent is faster
+than vanilla gradient descent, because it computes the gradient for a random subset of the training
+data at each iteration. However it has a higher variance in the loss function. Accelerated gradient
+descent is the fastest of the three methods. It uses a momentum term to speed up convergence and
+reduce oscillations in the loss function.
+
+
+\begin{task}{1.3.3}
+  How does the size of the network impact the choice of the optimizer?
+\end{task}
+
+For small networks, vanilla gradient descent is sufficient, because the computation of the gradient
+is not very expensive. For larger networks, stochastic gradient descent is more appropriate due to
+its lower computational cost. Accelerated gradient descent is the best choice for very large
+networks, because it converges faster than the other two methods.
+
+
+\begin{task}{1.3.4}
+  Discuss the difference between epochs and time to assess the speed of the algorithms. What can it
+  mean to converge fast?
+\end{task}
+
+An epoch is a single pass through the entire training set. The time to train a model is the total
+time it takes to train the model. The number of epochs is a measure of the number of times the model
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \cite{Ries1522Rad}
-
-
 
 \newpage
 \nocite{}
