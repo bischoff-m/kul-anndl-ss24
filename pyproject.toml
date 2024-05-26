@@ -1,7 +1,7 @@
 [project]
 name = "kul-anndl-ss24"
 version = "0.1.0"
-authors = [{ name = "Marco Bischoff", email = "m.bischoff@fz-juelich.de" }]
+authors = [{ name = "Marco Bischoff", email = "bischoff_m@aim.com" }]
 requires-python = ">=3.9,<3.12"
 dependencies = [
     "numpy",
@@ -18,9 +18,8 @@ dependencies = [
     "torchvision",
     "torchaudio",
     "keras-core",
-    "tensorflow",
-    "tensorflow-io-gcs-filesystem",
-    "torch-directml",
+    "tensorflow>=2.10.0",
+    "tensorflow-io-gcs-filesystem==0.31.0",
 ]
 readme = "README.md"
 
