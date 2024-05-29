@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:78547194b934f2e565ad0eaf8acaf071524a34c0ee5388d546ec4bf8858584b6"
+content_hash = "sha256:857f7d6dcc67bbba88d4d63042e795b48cd271259e9be33e35e9660aa1cb29bb"
 
 [[package]]
 name = "absl-py"
@@ -840,6 +840,20 @@ files = [
     {file = "kiwisolver-1.4.5-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:210ef2c3a1f03272649aff1ef992df2e724748918c4bc2d5a90352849eb40bea"},
     {file = "kiwisolver-1.4.5-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:11d011a7574eb3b82bcc9c1a1d35c1d7075677fdd15de527d91b46bd35e935ee"},
     {file = "kiwisolver-1.4.5.tar.gz", hash = "sha256:e57e563a57fb22a142da34f38acc2fc1a5c864bc29ca1517a88abc963e60d6ec"},
+]
+
+[[package]]
+name = "latextable"
+version = "1.0.1"
+requires_python = ">=3.7"
+summary = "An extension to the texttable library that exports tables directly to Latex."
+groups = ["default"]
+dependencies = [
+    "texttable",
+]
+files = [
+    {file = "latextable-1.0.1-py3-none-any.whl", hash = "sha256:3c2db035574f36ef95ed8e2ccf32d37c2f534b6f2701022c5e00f159244b8306"},
+    {file = "latextable-1.0.1.tar.gz", hash = "sha256:e0d5e426f65e06c39d4b16441f027e435393bf11b40151a3aab3c706576d9ce9"},
 ]
 
 [[package]]
@@ -2100,6 +2114,16 @@ marker = "(platform_machine == \"arm64\" or platform_machine == \"aarch64\") and
 files = [
     {file = "termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63"},
     {file = "termcolor-2.4.0.tar.gz", hash = "sha256:aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"},
+]
+
+[[package]]
+name = "texttable"
+version = "1.7.0"
+summary = "module to create simple ASCII tables"
+groups = ["default"]
+files = [
+    {file = "texttable-1.7.0-py2.py3-none-any.whl", hash = "sha256:72227d592c82b3d7f672731ae73e4d1f88cd8e2ef5b075a7a7f01a23a3743917"},
+    {file = "texttable-1.7.0.tar.gz", hash = "sha256:2d2068fb55115807d3ac77a4ca68fa48803e84ebb0ee2340f858107a36522638"},
 ]
 
 [[package]]

@@ -133,6 +133,23 @@ converge after only $4$ iterations.
   % best performance (MSE) on the test set?
 \end{task}
 
+The MLP model consists of an input layer with $lag = 80$ neurons, a hidden layer with $100$ neurons,
+and an output layer with $1$ neuron. The model is trained for $3$ folds and $200$ epochs each. The
+loss for each fold is shown in Figure~\ref{fig:ex2_2_mlp_loss}. The parameters were tuned based on
+the loss on the validation set of size $150$. Using a bigger hidden layer and more lag improved the
+performance the most. However, the model was overfitting a lot if there were too many validation
+folds. Using fewer folds with a bigger hidden layer yielded better results than using more folds
+with a smaller hidden layer. Also, the MSE on the test set would vary a lot between different
+runs with the same parameters. This could be due to the initialization of the weights. The final
+MSE on the test set was $277.3$ for $lag = 80$ and $100$ neurons in the hidden layer.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{ex2_2_mlp_loss.pdf}
+  \caption{MLP loss for $3$ folds and $200$ epochs each.}
+  \label{fig:ex2_2_mlp_loss}
+\end{figure}
+
 
 
 \begin{task}{2.2.2}
@@ -140,8 +157,37 @@ converge after only $4$ iterations.
   % the lag value for the LSTM network?
 \end{task}
 
+The LSTM model was also trained for $3$ folds, $lag = 80$ and $100$ neurons in the hidden layer, but
+only for $150$ epochs. This was done to keep the results comparable to the MLP model. The parameters
+were tuned based on the loss on the validation set of size $150$. The loss for each fold is shown in
+Figure~\ref{fig:ex2_2_lstm_loss}, which still shows a small performance improvement for the third
+fold. When using more folds, the performance of the LSTM model was decreasing. Using a lower lag
+value also decreased the performance, which means that the LSTM model is able to capture a lot of
+the temporal dependencies. The final MSE on the test set was $90.3$.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{ex2_2_lstm_loss.pdf}
+  \caption{LSTM loss for $3$ folds and $150$ epochs each.}
+  \label{fig:ex2_2_lstm_loss}
+\end{figure}
+
 
 
 \begin{task}{2.2.3}
   % Compare the results of the recurrent MLP with the LSTM. Which model do you prefer and why?
 \end{task}
+
+As shown in Figure~\ref{fig:ex2_2_comparison}, the LSTM model outperforms the MLP model. For the
+first two thrids of the test set, the MLP and LSTM models predict the timeseries similarly. However,
+after the regular pattern changes, the MLP model is not able to predict the timeseries well. This
+could be due to the LSTM model being better at remembering and understanding the previous states of
+the timeseries. This is also reflected in the lower MSE of the LSTM model. Therefore, the LSTM model
+is preferred over the MLP model for this task.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{ex2_2_comparison.pdf}
+  \caption{Prediction results on continuation of the Santa Fe laser dataset.}
+  \label{fig:ex2_2_comparison}
+\end{figure}

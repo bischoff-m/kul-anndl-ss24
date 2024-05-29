@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[paper=a4paper,margin=1.5in]{geometry}
+\usepackage[paper=a4paper,margin=1.4in]{geometry}
 \usepackage[OT1]{fontenc}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
@@ -12,8 +12,9 @@
 \usepackage{tikz,lipsum,lmodern}
 \usepackage[most]{tcolorbox}
 \usepackage{subcaption}
-\usepackage{comment}
 \usepackage[hidelinks]{hyperref}
+\usepackage[shortlabels,inline]{enumitem}
+
 
 \renewcommand*\familydefault{\sfdefault} % Set font to sans-serif
 \graphicspath{ {figures/} }
@@ -35,12 +36,8 @@
 %   \end{tcolorbox}
 % }
 \newenvironment{task}[1]{
-  \vspace*{0.2cm}
-  \noindent
-  \large
-  \textbf{Task #1}
-}{
-}
+  \subsubsection*{Task #1}
+}{}
 
 \title{
   \vspace*{2cm}
@@ -67,25 +64,8 @@
 
 \input{exercises/ex1.tex}
 \input{exercises/ex2.tex}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cite{Ries1522Rad}
-
-\newpage
-\nocite{}
-\bibliographystyle{plain}
-\bibliography{main}
-
-
-
-\appendix
-
-\section{Benutzerdokumentation}
-\label{app1}
-\section{Introduction}
+\input{exercises/ex3.tex}
+\input{exercises/ex4.tex}
 
 
 \end{document}
-
