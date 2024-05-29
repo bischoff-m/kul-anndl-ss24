@@ -1,4 +1,6 @@
 
+
+\vspace*{0.5cm}
 \section{Generative Models}
 \label{ex:4}
 
@@ -19,17 +21,11 @@ conditional probabilities of each pixel given all other pixels. This makes it ea
 is a good approximation of the true likelihood.
 
 
+
 \begin{task}{4.1.2}
   % What is the role of the number of components, learning rate and number of iterations on the
   % performance? You can also evaluate it visually by reconstructing unseen test images.
 \end{task}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.9\textwidth]{ex4_1_rbm_likelihoods.pdf}
-  \caption{Pseudo-likelihoods of RBM training with different parameters.}
-  \label{fig:ex4_1_rbm_likelihoods}
-\end{figure}
 
 With a low learning rate, the model converges slowly which would need a higher number of iterations
 to reach the same performance. On the other hand, a high learning rate can cause oscillations in the
@@ -42,21 +38,21 @@ pseudo-likelihood values in Figure~\ref{fig:ex4_1_rbm_likelihoods}.\\
 The performance of the model was evaluated visually by reconstructing unseen test images. The best
 results were achieved with $200$ components, a learning rate of $0.1$, and $30$ iterations.
 Counterintuitively, the model produced more convincing results than other models that achieved a
-higher pseudo-likelihood. This could be due to the fact that the pseudo-likelihood is not a perfect
-measure of the model's performance.
+higher pseudo-likelihood. This could be due to the pseudo-likelihood not being a perfect measure of
+the model's performance.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{ex4_1_rbm_likelihoods.pdf}
+  \caption{Pseudo-likelihoods of RBM training with different parameters.}
+  \label{fig:ex4_1_rbm_likelihoods}
+\end{figure}
+
 
 
 \begin{task}{4.1.3}
   % Change the number of Gibbs sampling steps. Can you explain the result?
 \end{task}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.9\textwidth]{ex4_1_rbm_gibbs_steps.pdf}
-  \caption{Reconstructed images of a $9$ with Gibbs sampling steps. Number of Gibbs sampling steps:
-    $1$, $2$, $5$, $10$, $100$, $1000$.}
-  \label{fig:ex4_1_rbm_gibbs_steps}
-\end{figure}
 
 The effect of the number of Gibbs sampling steps can be seen in
 Figure~\ref{fig:ex4_1_rbm_gibbs_steps}. With only one Gibbs sampling step, the model can already
@@ -65,25 +61,19 @@ $10$ steps, the image degrades and converges to something that could resemble a 
 the mean of all digits. This could be related to the problem of iterated functions, where the model
 converges to a fixed point.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{ex4_1_rbm_gibbs_steps.pdf}
+  \caption{Reconstructed images of a $9$ with Gibbs sampling steps. Number of Gibbs sampling steps:
+    $1$, $2$, $5$, $10$, $100$, $1000$.}
+  \label{fig:ex4_1_rbm_gibbs_steps}
+\end{figure}
+
+
+
 \begin{task}{4.1.4}
   % Use the RBM to reconstruct missing parts of images. Discuss the results.
 \end{task}
-
-\begin{figure}[ht!]
-  \centering
-  \begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{ex4_1_rbm_reconstruction.pdf}
-    \captionof{figure}{Top: Original images with missing parts. Middle: Reconstructed images. Bottom: Merge of original and reconstructed images.}
-    \label{fig:ex4_1_rbm_reconstruction}
-  \end{minipage}
-  \begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{ex4_1_rbm_components.pdf}
-    \captionof{figure}{Components of the RBM.}
-    \label{fig:ex4_1_rbm_components}
-  \end{minipage}
-\end{figure}
 
 In this example, 12 rows at the top of the image were removed. The RBM is able to reconstruct some
 digits better than others, as shown in Figure~\ref{fig:ex4_1_rbm_reconstruction}. Two of the
@@ -92,6 +82,23 @@ simple shape. The digit $9$ is falsely reconstructed as a $4$. However, the mode
 reconstruct the digit $5$ correctly, even though it could also be seen as a $3$ with the top part
 missing. In this case, the model has the most trouble with the second $0$-digit, because of the
 additional stroke in the middle.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{minipage}{0.6\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{ex4_1_rbm_reconstruction.pdf}
+    \captionof{figure}{Top: Original images with missing parts. Middle: Reconstructed images. Bottom: Merge of original and reconstructed images.}
+    \label{fig:ex4_1_rbm_reconstruction}
+  \end{minipage}
+  \begin{minipage}{0.39\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{ex4_1_rbm_components.pdf}
+    \captionof{figure}{Components of the RBM.}
+    \label{fig:ex4_1_rbm_components}
+  \end{minipage}
+\end{figure}
+
 
 
 \begin{task}{4.1.5}
@@ -105,7 +112,8 @@ the bottom, left or right side of the image has a similar effect. With removed r
 the model has more trouble, likely because the middle of the image contains more context than the
 edges.
 
-\vspace*{0.3cm}
+
+
 \subsubsection*{Deep Boltzmann Machines}
 
 \begin{task}{4.1.6}
@@ -114,22 +122,6 @@ edges.
   % what is the difference? Can you explain the difference between filters of the first and second
   % layer of the DBM?
 \end{task}
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{ex4_1_dbm_components_1.pdf}
-    \caption{First layer}
-    \label{fig:ex4_1_dbm_components_1}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{ex4_1_dbm_components_2.pdf}
-    \caption{Second layer}
-    \label{fig:ex4_1_dbm_components_2}
-  \end{subfigure}
-  \caption{Components of the DBM.}
-  \label{fig:ex4_1_dbm_components}
-\end{figure}
 
 Comparing the components of the RBM (see Figure~\ref{fig:ex4_1_rbm_components}) and the first layer
 of the DBM (see Figure~\ref{fig:ex4_1_dbm_components_1}), the components of the RBM have many more
@@ -142,20 +134,44 @@ Figure~\ref{fig:ex4_1_dbm_components_2}. Many of them also have a spot in the mi
 as pronounced as in the first layer. Overall, the components of the second layer have much more
 contrast than the first layer.
 
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{ex4_1_dbm_components_1.pdf}
+    \caption{First layer}
+    \label{fig:ex4_1_dbm_components_1}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{ex4_1_dbm_components_2.pdf}
+    \caption{Second layer}
+    \label{fig:ex4_1_dbm_components_2}
+  \end{subfigure}
+  \caption{Components of the DBM.}
+  \label{fig:ex4_1_dbm_components}
+\end{figure}
+
+
 
 \begin{task}{4.1.7}
   % Sample new images from the DBM. Is the quality better than the RBM from the previous exercise?
   % Explain.
 \end{task}
 
+The samples generated by the RBM and the DBM after 1 Gibbs sampling step are shown in
+Figure~\ref{fig:ex4_1_samples}. The samples of the DBM are of higher quality than the samples of the
+RBM, because they resemble digits more closely and have less artifacts. The biggest difference is
+that the RBM only produces binary pixel values, while the digits of the DBM have continuous edges,
+like anti-aliasing was applied. Also, the structure of the digits is more consistent in the DBM
+samples.
+
 \begin{figure}[ht]
   \centering
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\textwidth]{ex4_1_rbm_samples.pdf}
     \caption{RBM}
     \label{fig:ex4_1_rbm_samples}
   \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\textwidth]{ex4_1_dbm_samples.pdf}
     \caption{DBM}
     \label{fig:ex4_1_dbm_samples}
@@ -164,12 +180,6 @@ contrast than the first layer.
   \label{fig:ex4_1_samples}
 \end{figure}
 
-The samples generated by the RBM and the DBM after 1 Gibbs sampling step are shown in
-Figure~\ref{fig:ex4_1_samples}. The samples of the DBM are of higher quality than the samples of the
-RBM, because they resemble digits more closely and have less artifacts. The biggest difference is
-that the RBM only produces binary pixel values, while the digits of the DBM have continuous edges,
-like anti-aliasing was applied. Also, the structure of the digits is more consistent in the DBM
-samples.
 
 
 \subsection{Generator and Discriminator in the Ring}
@@ -225,14 +235,20 @@ a noisy background, some more than others.
   % Try the CNN-based backbone and discuss.
 \end{task}
 
+A comparison of the samples generated by the GAN with the different backbones is shown in
+Figure~\ref{fig:ex4_2_samples}. In general, the samples generated by the CNN backbone are of higher
+quality. The structure of the digits is clearer and the background is less noisy. There are only a
+few samples that are hardly recognizable as digits. The CNN backbone also prefers round shapes and
+the digit $0$ is also the most common digit.
+
 \begin{figure}[ht]
   \centering
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\textwidth]{ex4_2_samples_vanilla.pdf}
     \caption{Feedforward backbone}
     \label{fig:ex4_2_samples_vanilla}
   \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\textwidth]{ex4_2_samples_cnn.pdf}
     \caption{CNN backbone}
     \label{fig:ex4_2_samples_cnn}
@@ -241,11 +257,6 @@ a noisy background, some more than others.
   \label{fig:ex4_2_samples}
 \end{figure}
 
-A comparison of the samples generated by the GAN with the different backbones is shown in
-Figure~\ref{fig:ex4_2_samples}. In general, the samples generated by the CNN backbone are of higher
-quality. The structure of the digits is clearer and the background is less noisy. There are only a
-few samples that are hardly recognizable as digits. The CNN backbone also prefers round shapes and
-the digit $0$ is also the most common digit.
 
 
 \begin{task}{4.2.6}
@@ -280,6 +291,7 @@ The ELBO is used because it is easier to optimize than the log-likelihood. Also,
 term acts as a regularizer that prevents the model from overfitting.
 
 
+
 \begin{task}{4.3.2}
   % In particular, what similarities and differences do you see when compared with stacked
   % auto-encoder from the previous assignment? What is the metric for the reconstruction error in
@@ -292,25 +304,10 @@ sampling from the latent space. The stacked auto-encoder uses cross entropy and 
 cross entropy as the metric for the reconstruction error.
 
 
+
 \begin{task}{4.3.3}
   % Explore the latent space using the provided code and discuss what you observe.
 \end{task}
-
-\begin{figure}[t]
-  \centering
-  \begin{minipage}{0.6\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{ex4_2_gan_loss.pdf}
-    \captionof{figure}{Losses of the generator and discriminator during training.}
-    \label{fig:ex4_2_gan_loss}
-  \end{minipage}
-  \begin{minipage}{0.39\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{ex4_3_samples.pdf}
-    \captionof{figure}{Random samples from the latent space of the VAE.}
-    \label{fig:ex4_3_samples}
-  \end{minipage}
-\end{figure}
 
 I trained the VAE with latent-space dimension $300$ and middle layer dimension $1024$ for $100$
 epochs. The samples from the latent space are shown in Figure~\ref{fig:ex4_3_samples}. One can tell
@@ -318,6 +315,26 @@ that they are supposed to be digits, but only a few of them have a clear structu
 samples that are not recognizable as digits at all. Others can be seen as a digit, but are not
 clearly defined. A big majority of the outputs look like the digit $8$. Also, there is no sample
 that is clearly a $0$-digit. I consider this as counterintuitive, because of its simple shape.
+
+\begin{figure}[ht]
+  \centering
+  \hspace*{\fill}%
+  \begin{minipage}{0.55\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{ex4_2_gan_loss.pdf}
+    \captionof{figure}{Losses of the generator and discriminator during training.}
+    \label{fig:ex4_2_gan_loss}
+  \end{minipage}
+  \hspace*{\fill}%
+  \begin{minipage}{0.40\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{ex4_3_samples.pdf}
+    \captionof{figure}{Random samples from the latent space of the VAE.}
+    \label{fig:ex4_3_samples}
+  \end{minipage}
+  \hspace*{\fill}%
+\end{figure}
+
 
 
 \begin{task}{4.3.4}

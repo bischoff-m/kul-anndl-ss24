@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[paper=a4paper,margin=1.4in]{geometry}
+\usepackage[paper=a4paper,margin=1.2in]{geometry}
 \usepackage[OT1]{fontenc}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
@@ -14,6 +14,7 @@
 \usepackage{subcaption}
 \usepackage[hidelinks]{hyperref}
 \usepackage[shortlabels,inline]{enumitem}
+\usepackage{pdfpages}
 
 
 \renewcommand*\familydefault{\sfdefault} % Set font to sans-serif
@@ -46,7 +47,7 @@
     Prof. Dr. ir. Johan A. K. Suykens
   } \vspace{2cm} \\
   Artificial Neural Networks \& Deep Learning \\
-  {\large Exercise Reports}
+  {\large Exercise Report}
 }
 \author{Marco Bischoff (R1012984)}
 
@@ -66,6 +67,7 @@
 \input{exercises/ex2.tex}
 \input{exercises/ex3.tex}
 \input{exercises/ex4.tex}
+\includepdf[pages=-]{code_of_conduct.pdf}
 
 
 \end{document}
